@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .card {
+            width: 300px;
+            height: 480px;
+            border: 2px solid;
+            border-radius: 10px;
+
+        }
+
+        .card img {
+            width: 100%;
+            height: 200px;
+            object-fit: contain;
+        }
+
+        #container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+
+        .card {
+            margin: 8px;
+        }
+
+        button {
+            width: 100%;
+            background-color: rgb(140, 117, 225);
+            color: white;
+            padding: 10px;
+        }
+    </style>
+</head>
+
+<body>
+
+    <div id="container">
+    </div>
+    <script>
+        async function getData() {
+            data = await fetch("https://fakestoreapi.com/products")
+            let newData = await data.json()
+
+            for (i = 0; i < newData.length; i++) {
+                document.getElementById("container").innerHTML += `
+        <div class="card">
+            <img src="${newData[i].image}"
+                alt="">
+            <p>${newData[i].price}</p>
+            <p>${newData[i].description}</p>
+            <button>ADD TO CART</button>
+        </div>
+            `
+            }
+        }
+        getData()
+    </script>
+</body>
+
+</html>
