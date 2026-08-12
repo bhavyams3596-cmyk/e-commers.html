@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+        }
+
+        ul {
+            background-color: rgb(1, 1, 1);
+            color: rgb(238, 235, 235);
+            display: flex;
+            font-size: 15px;
+            list-style-type: none;
+            padding: 10px;
+            justify-content: space-around;
+            align-items: center;
+        }
+
+        input,
+        .btn-1 {
+            padding: 10px;
+            border: none;
+        }
+
+        .btn-1 {
+            position: relative;
+            right: 6px;
+            background-color: greenyellow;
+            border: none;
+        }
+
+        input:focus {
+            outline: none;
+        }
+
+        .btn-1:hover {
+            background-color: red;
+            color: white;
+            cursor: pointer;
+        }
+
+        .card {
+            width: 270px;
+            height: 342px;
+            border: 2px solid gray;
+            line-height: 25px;
+            border-radius: 10px;
+            text-align: center;
+            overflow: hidden;
+            margin: 20px;
+            transition: 3s ease;
+            box-shadow: 3px 10px 20px rgb(107, 106, 106);
+
+        }
+
+        .card:hover {
+            cursor: pointer;
+            box-shadow: 3px 10px 20px rgb(107, 106, 106);
+        }
+
+        img {
+            width: 100%;
+            height: 170px;
+            border-radius: 6px;
+
+        }
+
+        .heading {
+            font-size: 20px;
+            font-weight: 700;
+        }
+
+        .card-btn {
+            width: 100%;
+            padding: 10px;
+            margin-top: 11px;
+            background-color: rgb(0, 200, 255);
+            color: rgb(37, 35, 35);
+            border: none;
+            /* overflow: hidden; */
+        }
+
+        .container {
+            display: flex;
+            flex-wrap: wrap;
+        }
+    </style>
+</head>
+
+<body>
+    <div id="box" class="container">
+    </div>
+    <script>
+        brandNames = ["NIKE","WOODLAND","ADDIDAS","PUMA","REEBOK","NEW BALANCE","ASICS","UNDER ARMOUR","MIZUNO","SAUCONY","BROOKS","HOKA","ON","SALOMON","MERREL","ALTRA","VEJA","DIADORA","LOTTO","LA SPORTIVA"]
+        images = ["https://media.istockphoto.com/id/523113015/photo/mens-brown-shoes.jpg?s=612x612&w=0&k=20&c=3DL6Hz1Is_XaARpwTopjL_uVJFeXu0BWePYM0WT9GW0=",
+            "https://png.pngtree.com/png-vector/20241018/ourmid/pngtree-running-shoes-or-sneakers-on-a-transparent-background-png-image_14112954.png",
+            "https://static.vecteezy.com/system/resources/thumbnails/058/272/032/small/sleek-and-minimalist-running-shoe-with-transparent-design-free-png.png",
+            "https://media.istockphoto.com/id/1688015574/photo/white-sneaker-isolated-on-white-background.jpg?s=612x612&w=0&k=20&c=gz8bGn7h_eaF4uJGJjdZYYhJDrrigHAygo2Vi8tZjH8=",
+            "https://ajantashoes.com/cdn/shop/files/Creative2_ca20cf80-9530-4053-b4b4-c66602d3ae67.jpg?v=1767164579&width=2160",
+            "https://baccabucci.com/cdn/shop/products/MG_8831_6983b4ff-5d28-4d59-a03e-f55bce226ad7.jpg?v=1635422651",
+            "https://annachy-prod-assets.annachy.com/pims/products-v1/0147128GRE_7.png",
+            "https://www.saintg.in/cdn/shop/products/b1-1-5_1800x1800.jpg?v=1739443973",
+            "https://img.tatacliq.com/images/i18//437Wx649H/MP000000022648128_437Wx649H_202406200139291.jpeg",
+            "https://contents.mediadecathlon.com/p2994477/ba8ae0e89c3f37d4dadc700a1fa8a877/p2994477.jpg",
+            "https://www.onlin.in/public/images/footwearstore/products/65fe6981653de-664de806ba65f.jpg",
+            "https://happenstance.com/storage/media/catalogue/OCH32s7J1IRYtXbQDbW7NUMuKwhXlGRv9JgEd9pE.webp",
+            "https://rukminim3.flixcart.com/image/388/494/xif0q/shopsy-shoe/c/w/7/8-21-42-naatu-brown-original-imahg67tsrtvmth8.jpeg?q=60&crop=false",
+            "https://shivnaresh.in/uploads/productImages/small/5721.webp",
+            "https://assets.woodland.social/product/images/FGC015061301A/OLIVE_GREEN/FGC015061301A_031_6.webp",
+            "https://impakto.in/cdn/shop/files/AS_3143_6.jpg?v=1773748265&width=1200",
+            "https://i0.wp.com/walkwayshoes.com/wp-content/uploads/2026/01/19-819-12-1.jpg?resize=300%2C300&ssl=1",
+            "https://happenstance.com/themes/happenstance/images/alpha-shoes-men.webp",
+            "https://hitz.co.in/cdn/shop/products/836WHITEH.jpg?v=1755620175",
+            "https://assets.myntassets.com/w_200,q_50,,dpr_3,fl_progressive,f_webp/assets/images/2026/MAY/6/tx8eg6So_bf8d782c85ef43a6972b5c996be6f67b.jpg"
+        ]
+        for (i = 0; i <= 20; i++) {
+            document.getElementById("box").innerHTML += `
+            <div class="card">
+            <img src="${images[i]}"
+                alt="">
+            <span class="heading">Title:</span>${brandNames[i]} <br>
+            <span class="heading">Price:</span> 4999/- <br>
+            <span class="heading">Desc:</span> Value for money <br>
+            <span class="heading">Rating:</span> 8.9 <br>
+            <button class="card-btn">BUY NOW</button>
+        </div>
+            `
+        }
+    </script>
+</body>
+
+</html>
